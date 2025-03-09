@@ -3,7 +3,7 @@ import sys
 
 def mostrar_ajuda():
     print("""
-Uso: python3 script.py <URL> [STATUS_CODE]
+Uso: python3 finder.py <URL> [STATUS_CODE]
 
 Descrição:
   Ferramenta de fuzzing de diretórios que testa caminhos de um arquivo de wordlist
@@ -15,8 +15,8 @@ Argumentos:
                  Se não for informado, mostrará todos os status.
 
 Exemplo de uso:
-  python3 script.py http://example.com 200  # Mostra apenas status 200
-  python3 script.py http://example.com      # Mostra todos os status
+  python3 finder.py http://example.com 200  # Mostra apenas status 200
+  python3 finder.py http://example.com      # Mostra todos os status
 
 Outros:
   -h, --help     Mostra esta mensagem de ajuda e sai.
