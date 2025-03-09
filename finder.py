@@ -23,6 +23,20 @@ Outros:
 """)
     sys.exit(0)
 
+
+def thisBanner():
+    banner = r"""
+    .___.__         .__                  __                
+  __| _/|__|______  |  |__  __ __  _____/  |_  ___________ 
+ / __ | |  \_  __ \ |  |  \|  |  \/    \   __\/ __ \_  __ \
+/ /_/ | |  ||  | \/ |   Y  \  |  /   |  \  | \  ___/|  | \/
+\____ | |__||__|    |___|  /____/|___|  /__|  \___  >__|   
+     \/                  \/           \/          \/
+"""
+    print ( banner )
+
+thisBanner()
+
 # Verifica se o usuário pediu ajuda ou não passou argumentos
 if len(sys.argv) < 2:
     print("Erro: argumentos insuficientes. Use -h para ajuda.")
