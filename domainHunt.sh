@@ -1,16 +1,22 @@
+#!/bin/bash
 
 url=$1
 
 echo "===================="
-echo "Analizando $1"
+echo "Analisando $url"
 echo "===================="
 
-wget $1
+# Baixa o conteúdo da página com user-agent e evita conteúdo binário
+wget -q --user-agent="Mozilla/5.0" -O index.html $url
 
-grep "href" index.html > saida
+# Extrai domínios de links válidos ignorando avisos de binário
+grep -a "href" index.html > saida
 grep "http" saida | cut -d "/" -f 3 | grep "\." | grep -v " " | sort -u > dominios
 
-for domain in $(cat dominios)
-do
-    host $domain | grep -v "not found"
+# Resolve domínios para IPs
+for domain in $(cat dominios); do
+    ip=$(host $domain | grep "has address" | cut -d " " -f 4)
+    if [[ ! -z "$ip" ]]; then
+        echo "$ip    $domain"
+    fi
 done
