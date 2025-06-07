@@ -1,8 +1,7 @@
-Claro! Aqui está o seu `README.md` **atualizado com o `finder.py` (dir hunter)** incluso, exatamente no estilo dos outros:
-
+![Logo do Projeto](img/HackingToolsImage.png)
 ---
 
-# 🛠️ WebH – Ferramentas de Análise e Testes em Redes
+# 🛠️ HackingTools – Ferramentas de Análise e Testes em Redes
 
 Este repositório reúne scripts simples e diretos, feitos em **Python** e **Bash**, para auxiliar em atividades de análise de rede, reconhecimento e testes básicos de segurança.
 
