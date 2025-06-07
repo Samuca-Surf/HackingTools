@@ -1,3 +1,5 @@
+Claro! Aqui está o seu `README.md` **atualizado com o `finder.py` (dir hunter)** incluso, exatamente no estilo dos outros:
+
 ---
 
 # 🛠️ WebH – Ferramentas de Análise e Testes em Redes
@@ -13,10 +15,10 @@ Este repositório reúne scripts simples e diretos, feitos em **Python** e **Bas
 Scanner de portas TCP completo (1–65535), com tentativa de captura de banner nos serviços abertos.
 📄 [Manual](docs/portScanner.md)
 
-### 🌐 `dnsResolver.py`
+### 🌐 `dnsResolve.py`
 
 Resolve o IP de um domínio informado.
-📄 [Manual](docs/dnsResolver.md)
+📄 [Manual](docs/dnsResolve.md)
 
 ### 🕸️ `domainHunt.sh`
 
@@ -28,6 +30,11 @@ Coleta todos os domínios presentes nos links de uma página HTML e resolve seus
 Envia um único pacote de ping para um IP ou domínio e exibe a resposta.
 📄 [Manual](docs/pingTool.md)
 
+### 📁 `finder.py`
+
+Faz fuzzing de diretórios com base em uma wordlist local (`listy.txt`). Exibe caminhos que retornam o status HTTP desejado.
+📄 [Manual](docs/finder.md)
+
 ---
 
 ## ▶️ Como usar
@@ -35,6 +42,7 @@ Envia um único pacote de ping para um IP ou domínio e exibe a resposta.
 ### Requisitos
 
 * **Python 3.x**
+* Biblioteca `requests` (`pip install requests`)
 * Ferramentas Linux padrão (para scripts `.sh`): `bash`, `ping`, `wget`, `grep`, `host`, `cut`, `sort`
 
 ### Execução rápida
@@ -44,6 +52,7 @@ python3 portScanner.py <IP>
 python3 dnsResolve.py <domínio>
 bash domainHunt.sh <URL>
 bash pingTool.sh <IP ou domínio>
+python3 finder.py <URL> [STATUS_CODE]
 ```
 
 ---
