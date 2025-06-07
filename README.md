@@ -1,20 +1,58 @@
-find_dir é uma ferramenta simples de fuzzing de diretórios para testar a presença de caminhos em sites e servidores. Ela utiliza uma wordlist para fazer requisições HTTP e filtrar as respostas com base no código de status desejado.
+---
 
-Uso da ferramenta :
-python3 finder.py <URL> [STATUS_CODE]
+# 🛠️ WebH – Ferramentas de Análise e Testes em Redes
 
-Descrição:
-  Ferramenta de fuzzing de diretórios que testa caminhos de um arquivo de wordlist
-  e exibe apenas os que retornam o código de status HTTP especificado.
+Este repositório reúne scripts simples e diretos, feitos em **Python** e **Bash**, para auxiliar em atividades de análise de rede, reconhecimento e testes básicos de segurança.
 
-Argumentos:
-  <URL>          A URL alvo (ex: http://example.com)
-  [STATUS_CODE]  (Opcional) O código de status HTTP desejado (ex: 200, 403, 404).
-                 Se não for informado, mostrará todos os status.
+---
 
-Exemplo de uso:
-  python3 finder.py http://example.com 200  # Mostra apenas status 200
-  python3 finder.py http://example.com      # Mostra todos os status
+## 📂 Ferramentas incluídas
 
-Outros:
-  -h, --help     Mostra esta mensagem de ajuda e sai.
+### 🔎 `portScanner.py`
+
+Scanner de portas TCP completo (1–65535), com tentativa de captura de banner nos serviços abertos.
+📄 [Manual](docs/portScanner.md)
+
+### 🌐 `dnsResolver.py`
+
+Resolve o IP de um domínio informado.
+📄 [Manual](docs/dnsResolver.md)
+
+### 🕸️ `domainHunt.sh`
+
+Coleta todos os domínios presentes nos links de uma página HTML e resolve seus respectivos IPs.
+📄 [Manual](docs/domainHunt.md)
+
+### 📶 `pingTool.sh`
+
+Envia um único pacote de ping para um IP ou domínio e exibe a resposta.
+📄 [Manual](docs/pingTool.md)
+
+---
+
+## ▶️ Como usar
+
+### Requisitos
+
+* **Python 3.x**
+* Ferramentas Linux padrão (para scripts `.sh`): `bash`, `ping`, `wget`, `grep`, `host`, `cut`, `sort`
+
+### Execução rápida
+
+```bash
+python3 portScanner.py <IP>
+python3 dnsResolve.py <domínio>
+bash domainHunt.sh <URL>
+bash pingTool.sh <IP ou domínio>
+```
+
+---
+
+## ⚠️ Aviso legal
+
+Este projeto tem fins **educacionais**.
+**Não use essas ferramentas para atacar ou interferir em sistemas que você não tem autorização expressa para testar.**
+
+Você é responsável pelo uso das ferramentas aqui disponibilizadas.
+
+---
