@@ -53,6 +53,16 @@ bash domainHunt.sh <URL>
 bash pingTool.sh <IP ou domínio>
 python3 finder.py <URL> [STATUS_CODE]
 ```
+---
+## 💸 Apoie o Projeto
+
+Se este projeto te ajudou ou você quer apoiar o desenvolvimento:
+
+- **Bitcoin (BTC):** `bc1q3hyrqzvvrlqrc94lpaa3jyqyvtakehq50zaks2`
+
+Obrigado pelo apoio! 🙏
+
+
 
 ---
 
