@@ -1,0 +1,14 @@
+				PARAMETROS
+
+> SOA:	Start of Authority (Início da autoridade)
+> A:	Endereço IPv4
+> AAAA:	Endereço IPv6
+> NS:	Name Server (Servidor de nome)
+> CNAME:	Canonical Name(Nome canõnico, redireciona um nome para outro)
+> MX:	Mail Exchange (Troca de correio, usado  para rotear e-mails)
+> PTR:	Pointer Record (Registro de ponteiro, geralmente usado para lookup reverso de IP)
+> TXT:	Text Record (Registro de texto, usado para informações arbitárias, como verificação de propriedade do domínio)
+> HINFO:	Host Information (Informação do Host, detalha o hardware e o sistema operacional)
+
+			EXEMPLO
+subfinder.sh dominio SOA

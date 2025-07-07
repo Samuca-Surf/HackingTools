@@ -1,67 +1,74 @@
-import requests
+#!/usr/bin/python3
 import sys
+import requests
+import os
 
 def mostrar_ajuda():
     print("""
-Uso: python3 finder.py <URL> [STATUS_CODE]
+Uso: python3 finder.py <URL> <WORDLIST> [STATUS_CODE]
 
 Descrição:
-  Ferramenta de fuzzing de diretórios que testa caminhos de um arquivo de wordlist
-  e exibe apenas os que retornam o código de status HTTP especificado.
+  Ferramenta de fuzzing de diretórios que testa caminhos de uma wordlist
+  e exibe apenas os que retornam o código de status HTTP especificado (ou todos).
 
 Argumentos:
   <URL>          A URL alvo (ex: http://example.com)
-  [STATUS_CODE]  (Opcional) O código de status HTTP desejado (ex: 200, 403, 404).
-                 Se não for informado, mostrará todos os status.
-
-Exemplo de uso:
-  python3 finder.py http://example.com 200  # Mostra apenas status 200
-  python3 finder.py http://example.com      # Mostra todos os status
+  <WORDLIST>     Caminho do arquivo com os diretórios (ex: listy.txt)
+  [STATUS_CODE]  (Opcional) Código de status HTTP desejado (ex: 200, 403).
+                 Se omitido, exibe todos os status diferentes de 404.
 
 Outros:
   -h, --help     Mostra esta mensagem de ajuda e sai.
 """)
     sys.exit(0)
 
-
-def thisBanner():
+def mostrar_banner():
     banner = r"""
-    .___.__         .__                  __                
-  __| _/|__|______  |  |__  __ __  _____/  |_  ___________ 
- / __ | |  \_  __ \ |  |  \|  |  \/    \   __\/ __ \_  __ \
-/ /_/ | |  ||  | \/ |   Y  \  |  /   |  \  | \  ___/|  | \/
+.___.__         .__                  __                
+__| _/|__|______  |  |__  __ __  _____/  |_  ___________ 
+/__ | |  \_  __ \ |  |  \|  |  \/    \   __\/ __ \_  __ \
+/_/ | |  ||  | \/ |   Y  \  |  /   |  \  | \  ___/|  | \/
 \____ | |__||__|    |___|  /____/|___|  /__|  \___  >__|   
      \/                  \/           \/          \/
 """
-    print ( banner )
+    print(banner)
 
-thisBanner()
+# ========== INÍCIO ==========
+mostrar_banner()
 
-# Verifica se o usuário pediu ajuda ou não passou argumentos
-if len(sys.argv) < 2:
-    print("Erro: argumentos insuficientes. Use -h para ajuda.")
-    sys.exit(1)
-
-if sys.argv[1] in ["-h", "--help"]:
+if len(sys.argv) < 3 or sys.argv[1] in ["-h", "--help"]:
     mostrar_ajuda()
 
-# Pega a URL
-url = sys.argv[1]
+# Corrigido: agora os argumentos são lidos corretamente
+url_base = sys.argv[1].rstrip("/")
+wordlist_path = os.path.expanduser(sys.argv[2])
 
-# Verifica se um status code foi passado, senão exibe todos
-status_code_desejado = int(sys.argv[2]) if len(sys.argv) > 2 else None
-
-# Abre a lista de diretórios
 try:
-    with open("listy.txt", "r") as lista:
-        for linha in lista:
-            url_go = f"{url}/{linha.strip()}"  # Remove espaços e quebras de linha
+    status_filtrado = int(sys.argv[3]) if len(sys.argv) > 3 else None
+except ValueError:
+    print(f"[!] Código de status inválido: {sys.argv[3]}")
+    sys.exit(1)
+
+headers = {"User-Agent": "TAMO TESTANDO TEU SISTEMA MANO"}
+
+# Processa a wordlist
+try:
+    with open(wordlist_path, "r") as arquivo:
+        for linha in arquivo:
+            caminho = linha.strip()
+            url_completa = f"{url_base}/{caminho}"
             try:
-                req = requests.get(url_go)
-                if status_code_desejado is None or req.status_code == status_code_desejado:
-                    print(f"{url_go} -> {req.status_code}")
-            except requests.RequestException as e:
-                print(f"Erro ao acessar {url_go}: {e}")
+                resposta = requests.get(url_completa, headers=headers)
+                status = resposta.status_code
+
+                if status_filtrado is not None:
+                    if status == status_filtrado:
+                        print(f"{url_completa} -> {status}")
+                else:
+                    if status != 404:
+                        print(f"{url_completa} -> {status}")
+            except requests.RequestException as erro:
+                print(f"[!] Erro ao acessar {url_completa}: {erro}")
 except FileNotFoundError:
-    print("Erro: arquivo 'listy.txt' não encontrado.")
+    print(f"[!] Arquivo de wordlist '{wordlist_path}' não encontrado.")
     sys.exit(1)
