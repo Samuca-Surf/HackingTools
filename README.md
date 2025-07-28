@@ -44,8 +44,11 @@ Script Bash que faz bruteforce de subdomínios com consulta DNS por tipo de regi
 Script Python para bruteforce de subdomínios realizando requisições HTTP e identificando subdomínios válidos.
 📄 [Manual](docs/brsub.md)
 
+### 📁 `ipfinder.sh`
 
-###
+Script Bash para identificar hosts ativos em uma sub-rede utilizando ping sequencial.
+📄[Manual](docs/ipfinder.sh)
+
 ---
 
 ## ▶️ Como usar
