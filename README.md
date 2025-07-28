@@ -34,6 +34,11 @@ Envia um único pacote de ping para um IP ou domínio e exibe a resposta.
 Faz fuzzing de diretórios com base em uma wordlist local (`listy.txt`). Exibe caminhos que retornam o status HTTP desejado.
 📄 [Manual](docs/finder.md)
 
+### 📁 `subfinder.sh`
+
+Script Bash que faz bruteforce de subdomínios com consulta DNS por tipo de registro.
+📄 [Manual](docs/bfdomain.md)
+
 ---
 
 ## ▶️ Como usar
