@@ -14,10 +14,10 @@ Este repositório reúne scripts simples e diretos, feitos em **Python** e **Bas
 Scanner de portas TCP completo (1–65535), com tentativa de captura de banner nos serviços abertos.
 📄 [Manual](docs/portScanner.md)
 
-### 🌐 `dnsResolve.py`
+### 🌐 `dnsResolver.py`
 
 Resolve o IP de um domínio informado.
-📄 [Manual](docs/dnsResolve.md)
+📄 [Manual](docs/dnsResolver.md)
 
 ### 🕸️ `domainHunt.sh`
 
