@@ -47,7 +47,7 @@ Script Python para bruteforce de subdomínios realizando requisições HTTP e id
 ### 📁 `ipfinder.sh`
 
 Script Bash para identificar hosts ativos em uma sub-rede utilizando ping sequencial.
-📄[Manual](docs/ipfinder.sh)
+📄[Manual](docs/ipfinder.md)
 
 ---
 
