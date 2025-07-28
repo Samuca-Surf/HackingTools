@@ -39,6 +39,13 @@ Faz fuzzing de diretórios com base em uma wordlist local (`listy.txt`). Exibe c
 Script Bash que faz bruteforce de subdomínios com consulta DNS por tipo de registro.
 📄 [Manual](docs/bfdomain.md)
 
+### 📁 `brsub.py`
+
+Script Python para bruteforce de subdomínios realizando requisições HTTP e identificando subdomínios válidos.
+📄 [Manual](docs/brsub.md)
+
+
+###
 ---
 
 ## ▶️ Como usar
