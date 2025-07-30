@@ -75,6 +75,9 @@ Se este projeto te ajudou ou você quer apoiar o desenvolvimento:
 
 - **Bitcoin (BTC):** `bc1q3hyrqzvvrlqrc94lpaa3jyqyvtakehq50zaks2`
 
+- **Monero (XMR):**
+`44HVN8vX7cMMWVxU9PY15r8jzcD3kNUC1bT1w7g9cyhXbfgkmHdBeDnf7UFy7T9s9FJHCNdgxTTGYR6iX9RyVtAkMjyN3Yk`
+
 Obrigado pelo apoio! 🙏
 
 
